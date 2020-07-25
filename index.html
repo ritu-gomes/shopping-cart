@@ -110,12 +110,14 @@
       //minus key
       function minusKey(button,product,prise,updated){
       getElement(button).addEventListener("click",function(){
-         deletingProduct(product);
-         var display2 = prise*parseFloat(getElement(product).value);
-         getElement(updated).innerHTML = display2;
-         var total = parseFloat(getElement("total").innerHTML);
-         getElement("total").innerHTML=total-prise;
-         getElement("alltotal").innerHTML=total-prise;        
+         if(getElement(product).value>=1){ 
+            deletingProduct(product);
+            var display2 = prise*parseFloat(getElement(product).value);
+            getElement(updated).innerHTML = display2;
+            var total = parseFloat(getElement("total").innerHTML);
+            getElement("total").innerHTML=total-prise;
+            getElement("alltotal").innerHTML=total-prise;
+         }        
          });
          function deletingProduct(amount){
          return parseFloat(getElement(amount).value--);
